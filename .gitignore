@@ -29,6 +29,8 @@ local.properties
 .buildpath
 
 
+phonegap.js
+
 #################
 ## Visual Studio
 #################

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<widget xmlns     = "http://www.w3.org/ns/widgets"
+        xmlns:gap = "http://phonegap.com/ns/1.0"
+        id        = "org.maltec.bnikzn"
+        versionCode="10"
+        version   = "1.1.0">
+
+    <!-- versionCode is optional and Android only -->
+
+    <name>BNI KZN</name>
+    <icon src="img/logo.png" width="72" height="72" />
+    <icon src="img/logo.png" width="48" height="48" />
+    <icon src="img/logo.png" width="36" height="36" />
+    <preference name="phonegap-version" value="2.7.0" />
+    <description>
+        BNI KZN Member application
+    </description>
+
+    <author href="http://maltec.co.za" email="jeremy@maltec.co.za">
+        Jeremy Malherbe
+    </author>
+
+    <feature name="http://api.phonegap.com/1.0/contacts"/>
+    <feature name="http://api.phonegap.com/1.0/file"/>
+    <feature name="http://api.phonegap.com/1.0/network"/>
+
+    <plugin name="Device" value="org.apache.cordova.Device" />
+
+</widget>

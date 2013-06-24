@@ -57,7 +57,7 @@ var WebSqlStore = function(successCallback, errorCallback) {
       });
   }
 
-  this.loadXMLDoc(device.uuid, device.platform)
+  this.loadXMLDoc(window.device.uuid, window.device.platform)
 
 }
 

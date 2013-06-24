@@ -1,0 +1,31 @@
+<div class="topcoat-navigation-bar" ng-controller="HomeCtrl">
+    <div class="topcoat-navigation-bar__item left quarter">
+        <a class="topcoat-icon-button--quiet" ng-click="slidePage('/','modal')">
+            <span class="topcoat-icon home-icon"></span>
+        </a>
+    </div>
+    <div class="topcoat-navigation-bar__item center half">
+        <h1 class="topcoat-navigation-bar__title"></h1>
+    </div>
+    <div class="topcoat-navigation-bar__item right quarter">
+        <a class="topcoat-icon-button--quiet" ng-click="changeSettings()">
+            <span class="topcoat-icon settings-icon"></span>
+        </a>
+    </div>
+</div>
+
+<div ng-controller="ChaptersCtrl">
+    <h3 class="topcoat-list__header">All BNI KZN Chapters</h3>
+    <div ng-show="chapters.length>0">
+        <p class="centerize">Number of Chapters found: {{chapters.length}}</p>
+        <div class="topcoat-list__container list">
+            <ul class=topcoat-list>
+                <li ng-repeat="chapter in chapters" class="topcoat-list__item" ng-click="slidePage('/view2')">
+                    {{ chapter.chaptername }}, {{ chapter.area }}
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<ng-include src="'partials/settingsOverlay.html'"></ng-include>

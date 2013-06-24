@@ -78,6 +78,15 @@ function ContactsCtrl($scope) {
     }
 }
 
+function ChaptersCtrl($scope) {
+              webStore.findAllChapters(function(chapters) {
+              $scope.chapters = [];
+              $scope.chapters = chapters;
+              $scope.$apply();
+            });
+
+}
+
 function CameraCtrl($scope) {
     $scope.takePic = function() {
         var options =   {

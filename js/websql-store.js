@@ -8,13 +8,13 @@ var WebSqlStore = function(successCallback, errorCallback) {
     }
     console.log("web5");
     this.initializeDatabase = function(successCallback, errorCallback) {
-        var self = this;
-        this.db = window.openDatabase("BNI", "1.0", "BNI", 200000);
+        var self = this;        console.log("web7");
+        this.db = window.openDatabase("BNI", "1.0", "BNI", 200000);  console.log("web8");
         this.db.transaction(
-                function(tx) {
+                function(tx) {           console.log("web9");
                     // Check if tables exist - if they do then user already exists, else create
                     var sql = "SELECT name FROM sqlite_master WHERE type='table' AND name='chapter';";
-                    tx.executeSql(sql, [], function(tx, results) {
+                    tx.executeSql(sql, [], function(tx, results) {  console.log("web10");
                         if (results.rows.length == 0) {
                           console.log("create tables");
                           // no user table so means we need to create all our tables...
@@ -280,7 +280,7 @@ var WebSqlStore = function(successCallback, errorCallback) {
            }
       });
   }
-
+  console.log("web6");
   this.initializeDatabase(successCallback, errorCallback);
 
 
@@ -296,7 +296,7 @@ var WebSqlStore = function(successCallback, errorCallback) {
             e = chapters[i];
             tx.executeSql(sql, [e.id, e.chaptername, e.venue, e.city, e.area, e.meetingday, e.meetingtime],
                     function() {
-                        console.log('INSERT success');
+                        //console.log('INSERT success');
                     },
                     function(tx, error) {
                         alert('INSERT error: ' + error.message);
@@ -314,7 +314,7 @@ var WebSqlStore = function(successCallback, errorCallback) {
             e = members[i];
             tx.executeSql(sql, [e.id, e.name, e.chapterId, e.company, e.phone, e.mobile, e.website, e.address],
                     function() {
-                        console.log('INSERT success');
+                        //console.log('INSERT success');
                     },
                     function(tx, error) {
                         alert('INSERT error: ' + error.message);
@@ -332,7 +332,7 @@ var WebSqlStore = function(successCallback, errorCallback) {
             e = keywords[i];
             tx.executeSql(sql, [e.id, e.keyword],
                     function() {
-                        console.log('INSERT success');
+                        //console.log('INSERT success');
                     },
                     function(tx, error) {
                         alert('INSERT error: ' + error.message);
@@ -350,7 +350,7 @@ var WebSqlStore = function(successCallback, errorCallback) {
             e = keywordmembers[i];
             tx.executeSql(sql, [e.id, e.keyid, e.memberid],
                     function() {
-                        console.log('INSERT success');
+                        //console.log('INSERT success');
                     },
                     function(tx, error) {
                         alert('INSERT error: ' + error.message);

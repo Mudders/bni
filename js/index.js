@@ -20,7 +20,7 @@ var app = {
     // Application Constructor
     initialize: function() {   console.log("init");
             this.bindEvents();
-
+            webStore = new WebSqlStore(function() {});
     },
     // Bind any events that are required on startup. Common events are:
     // 'load', 'deviceready', 'offline', and 'online'.

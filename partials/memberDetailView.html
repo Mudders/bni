@@ -15,26 +15,24 @@
 </div>
 
 
-<div class="topcoat-list__container list" ng-controller="MembersCtrl">
-    <h3 class="topcoat-list__header">BNI KZN - '{{ member.name }}'</h3>
-    <div ng-show="members.length>0">
-      <p class="centerize">{{ member.name }}</p>
+<div class="topcoat-list__container list" ng-controller="MemberDetailCtrl">
+    <h3 class="topcoat-list__header">'{{ member.chaptername }}'</h3>
+      <p class="centerize">{{ member.chaptername }}</p>
       <div class="topcoat-list__container list">
             <ul class=topcoat-list>
                 <li>
                   <h1>{{member.name}}</h1>
                   <h2>{{member.company}}</h2>
                 </li>
-                <li ng-show="member.chaptername.length>0"><a href="#chapters/{{chapterid}}"><strong>Chapter : </strong> {{member.chaptername}}</a></li>
-                <li ng-show="member.keywords.length>0"><strong>Industry : </strong> {{member.keywords}}</li>
-                <li ng-show="member.phone.length>0"><a href="tel:{{phone}}"><strong>Call Office : </strong> {{member.phone}}</a></li>
-                <li ng-show="member.mobile.length>0"><a href="tel:{{mobile}}"><strong>Call Cell : </strong> {{member.mobile}}</a></li>
-                <li ng-show="member.website.length>0"><a href="{{website}}" target="_new"><strong>Website : </strong> {{member.website}}</a></li>
-                <li ng-show="member.address.length>0"><strong>Address : </strong><br/>{{member.address}}</li>
-                <li><a href="#" class="add-contact-btn"><strong>Add to Contacts</strong></a></li>
-           </ul>
-        </div>
-    </div>
+                <li ng-show="member.chaptername.length>0" ng-click="slidePage('/view3/' + member.chapterid)" class="topcoat-list__item"><strong>Chapter : </strong> {{member.chaptername}}</li>
+                <li ng-show="member.keywords.length>0" class="topcoat-list__item"><strong>Industry : </strong> {{member.keywords}}</li>
+                <li ng-show="member.phone.length>0" class="topcoat-list__item"><a href="tel:{{member.phone}}"><strong>Call Office : </strong> {{member.phone}}</a></li>
+                <li ng-show="member.mobile.length>0" class="topcoat-list__item"><a href="tel:{{member.mobile}}"><strong>Call Cell : </strong> {{member.mobile}}</a></li>
+                <li ng-show="member.website.length>0" class="topcoat-list__item"><a href="{{member.website}}" target="_new"><strong>Website : </strong> {{member.website}}</a></li>
+                <li ng-show="member.address.length>0" class="topcoat-list__item"><strong>Address : </strong><br/>{{member.address}}</li>
+                <li ng-click="slidePage('/view5/' + member.id)" class="topcoat-list__item"><strong>Add to Contacts</strong></li>
+            </ul>
+      </div>
     <div class="topcoat-navigation-bar">
         <h1 class="righterize"  ng-show="!showURL" ng-swipe-left="showURL=true">Version  {{' %VERSION%' | interpolate}} </h1>
     </div>

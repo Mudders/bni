@@ -12,7 +12,7 @@ var myApp = angular.module('myApp', ['myApp.filters', 'myApp.services', 'myApp.d
         $routeProvider.when('/view2', {templateUrl: 'partials/searchByIndustry.html'});
         $routeProvider.when('/view3/:id', {templateUrl: 'partials/membersView.html', controller: 'MembersCtrl'});
         $routeProvider.when('/view4/:id', {templateUrl: 'partials/memberDetailView.html', controller: 'MemberDetailCtrl'});
-        $routeProvider.when('/view5', {templateUrl: 'partials/cameraView.html'});
+        $routeProvider.when('/view5/:id', {templateUrl: 'partials/addMemberToContactsView.html', controller: 'AddToContactsCtrl'});
         $routeProvider.when('/view6', {templateUrl: 'partials/contactsView.html'});
         $routeProvider.when('/view7', {templateUrl: 'partials/compassView.html'});
         $routeProvider.otherwise({redirectTo: '/'});

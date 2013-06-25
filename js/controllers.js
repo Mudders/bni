@@ -127,7 +127,7 @@ function MembersCtrl($scope, $routeParams, navSvc,$rootScope) {
 
 function MemberDetailCtrl($scope, $routeParams, navSvc,$rootScope) {
     $rootScope.showSettings = false;
-    $scope.slidePage = function (path,type) {
+    $scope.slidePage = function (path,type) {   console.log(path + " " + type)
         navSvc.slidePage(path,type);
     };
     $scope.back = function () {
@@ -150,26 +150,63 @@ function MemberDetailCtrl($scope, $routeParams, navSvc,$rootScope) {
     });
 }
 
-function CameraCtrl($scope) {
-    $scope.takePic = function() {
-        var options =   {
-            quality: 50,
-            destinationType: Camera.DestinationType.DATA_URL,
-            sourceType: 1,      // 0:Photo Library, 1=Camera, 2=Saved Photo Album
-            encodingType: 0     // 0=JPG 1=PNG
-        }
-        // Take picture using device camera and retrieve image as base64-encoded string
-        navigator.camera.getPicture(onSuccess,onFail,options);
+function AddToContactsCtrl($scope, $routeParams, navSvc,$rootScope, $route) {
+    $rootScope.showSettings = false;
+    $scope.slidePage = function (path,type) {
+        navSvc.slidePage(path,type);
+    };
+    $scope.back = function () {
+        navSvc.back();
+    };
+    $scope.changeSettings = function () {
+        $rootScope.showSettings = true;
+    };
+    $scope.closeOverlay = function () {
+        $rootScope.showSettings = false;
+    };
+
+    $scope.name = "AddToContactsCtrl";
+    $scope.params = $routeParams;
+    var obj = $route.current.params;
+    for(var key in obj) {
+      var value = obj[key];
+      console.log("tt " + value + " -> " + obj[key]);
     }
-    var onSuccess = function(imageData) {
-        console.log("On Success! ");
-        $scope.picData = "data:image/jpeg;base64," +imageData;
-        $scope.$apply();
-    };
-    var onFail = function(e) {
-        console.log("On fail " + e);
-    };
+    webStore.findById($scope.params.id, function(member) {
+      // now to add this member to contacts and return something saying it was added successfully...
+      $scope.member = [];
+      $scope.member = member;
+      $scope.$apply();
+      addToContacts(member);
+    });
+
 }
+function addToContacts(member) {
+        console.log('addToContacts');
+        if (!navigator.contacts) {
+            //navigator.notification.alert("Sample Alert",function() {console.log("Alert success")},"My Alert","Close");
+            return;
+        }
+
+        var contact = navigator.contacts.create({"displayName": member.name});
+        //contact.displayName = displayName: member.name;
+        var phoneNumbers = [];
+        phoneNumbers[0] = new ContactField('work', member.phone, false);
+        phoneNumbers[1] = new ContactField('mobile', member.mobile, true); // preferred number
+        contact.phoneNumbers = phoneNumbers;
+        var ContactOrganization  = [];
+        ContactOrganization.name = member.company;
+        contact.ContactOrganization = ContactOrganization;
+        contact.save();
+
+        app.showAlert(
+            member.name + ' Saved',  // message
+           'Done'                  // buttonName
+        );
+
+        return false;
+    };
+
 
 
 

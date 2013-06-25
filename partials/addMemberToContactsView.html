@@ -15,22 +15,19 @@
 </div>
 
 
-<div class="topcoat-list__container list" ng-controller="MembersCtrl">
-    <h3 class="topcoat-list__header">All '{{ members[0].chaptername }}' Members</h3>
-    <div ng-show="members.length>0">
-      <p class="centerize">{{ members[0].chaptername }}</p>
+<div class="topcoat-list__container list" ng-controller="AddToContactsCtrl">
+    <h3 class="topcoat-list__header">Adding {{member.name}} to contacts</h3>
+      <p class="centerize">{{ member.name }} Added to Contacts</p>
       <div class="topcoat-list__container list">
             <ul class=topcoat-list>
-                <li ng-repeat="member in members" class="topcoat-list__item" ng-click="slidePage('/view4/{{member.memberid}}')">
-                    <div style="width:90%;overflow:auto;">
-                      <div style="width:150px;float:left;">{{member.name}}</div>
-                      <div style="width:200px;float:left;">{{member.company}}</div>
-                      <div style="width:150px;float:left;">{{member.area}}</div>
-                    </div>
+                <li>
+                  <h1>{{member.name}} Added</h1>
                 </li>
-            </ul>
+                <li>
+                  <h2 ng-click="slidePage('/view4/' + member.id)" class="topcoat-list__item">Return to {{member.name}} Page</h2>
+                </li>
+           </ul>
         </div>
-    </div>
     <div class="topcoat-navigation-bar">
         <h1 class="righterize"  ng-show="!showURL" ng-swipe-left="showURL=true">Version  {{' %VERSION%' | interpolate}} </h1>
     </div>

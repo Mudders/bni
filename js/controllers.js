@@ -78,13 +78,76 @@ function ContactsCtrl($scope) {
     }
 }
 
-function ChaptersCtrl($scope) {
-              webStore.findAllChapters(function(chapters) {
-              $scope.chapters = [];
-              $scope.chapters = chapters;
-              $scope.$apply();
-            });
+function ChaptersCtrl($scope,navSvc,$rootScope) {
+    $rootScope.showSettings = false;
+    $scope.slidePage = function (path,type) {
+        navSvc.slidePage(path,type);
+    };
+    $scope.back = function () {
+        navSvc.back();
+    };
+    $scope.changeSettings = function () {
+        $rootScope.showSettings = true;
+    };
+    $scope.closeOverlay = function () {
+        $rootScope.showSettings = false;
+    };
 
+    webStore.findAllChapters(function(chapters) {
+      $scope.chapters = [];
+      $scope.chapters = chapters;
+      $scope.$apply();
+    });
+}
+
+function MembersCtrl($scope, $routeParams, navSvc,$rootScope) {
+    $rootScope.showSettings = false;
+    $scope.slidePage = function (path,type) {
+        navSvc.slidePage(path,type);
+    };
+    $scope.back = function () {
+        navSvc.back();
+    };
+    $scope.changeSettings = function () {
+        $rootScope.showSettings = true;
+    };
+    $scope.closeOverlay = function () {
+        $rootScope.showSettings = false;
+    };
+
+    $scope.name = "MembersCtrl";
+    $scope.params = $routeParams;
+
+    webStore.findChapterMembersById($scope.params.id, function(members) {
+      $scope.members = [];
+      $scope.members = members;
+      $scope.$apply();
+    });
+}
+
+function MemberDetailCtrl($scope, $routeParams, navSvc,$rootScope) {
+    $rootScope.showSettings = false;
+    $scope.slidePage = function (path,type) {
+        navSvc.slidePage(path,type);
+    };
+    $scope.back = function () {
+        navSvc.back();
+    };
+    $scope.changeSettings = function () {
+        $rootScope.showSettings = true;
+    };
+    $scope.closeOverlay = function () {
+        $rootScope.showSettings = false;
+    };
+
+    $scope.name = "MemberDetailCtrl";
+    $scope.params = $routeParams;
+
+    webStore.findById($scope.params.id, function(member) {
+      $scope.member = [];
+      $scope.member = member;
+      $scope.$apply();
+    });
 }
 
 function CameraCtrl($scope) {

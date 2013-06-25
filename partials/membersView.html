@@ -15,19 +15,17 @@
 </div>
 
 
-<div class="topcoat-list__container list" ng-controller="ChaptersCtrl">
-    <h3 class="topcoat-list__header">All BNI KZN Chapters</h3>
-    <div ng-show="chapters.length>0">
-      <p class="centerize">Number of Chapters found: {{chapters.length}}</p>
+<div class="topcoat-list__container list" ng-controller="MembersCtrl">
+    <h3 class="topcoat-list__header">All '{{ members[0].chaptername }}' Members</h3>
+    <div ng-show="members.length>0">
+      <p class="centerize">{{ members[0].chaptername }}</p>
       <div class="topcoat-list__container list">
             <ul class=topcoat-list>
-                <li ng-repeat="chapter in chapters" class="topcoat-list__item" ng-click="slidePage('/view3/{{chapter.id}}')">
-                    <div style="width:100%;overflow:auto;">
-                      <div style="width:150px;float:left;">{{chapter.chaptername}} &nbsp;</div>
-                      <div style="width:200px;float:left;">{{chapter.city}} &nbsp;</div>
-                      <div style="width:150px;float:left;">{{chapter.area}} &nbsp;</div>
-                      <div style="width:100px;float:left;">{{chapter.meetingday}} &nbsp;</div>
-                      <div style="width:100px;float:left;">{{chapter.meetingtime}} &nbsp;</div>
+                <li ng-repeat="member in members" class="topcoat-list__item" ng-click="slidePage('/view4/{{member.id}}')">
+                    <div style="width:90%;overflow:auto;">
+                      <div style="width:150px;float:left;">{{member.name}}</div>
+                      <div style="width:200px;float:left;">{{member.company}}</div>
+                      <div style="width:150px;float:left;">{{member.area}}</div>
                     </div>
                 </li>
             </ul>

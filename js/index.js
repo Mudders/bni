@@ -39,8 +39,7 @@ var app = {
             angular.bootstrap(document);
         });*/
         new FastClick(document.body);
-        webStore = new WebSqlStore(function() {
-
-            });
+        console.log("ondeviceready");
+        webStore = new WebSqlStore(function() {});  console.log("ondeviceready1");
     }
 };

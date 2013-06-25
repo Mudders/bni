@@ -1,12 +1,12 @@
 var WebSqlStore = function(successCallback, errorCallback) {
     //console.log(new Date().getTime())
     var uuid = "12345";
-    var platform = "Android";
-    if (window.device != undefined) {
-      uuid = window.device.uuid;
-      platform = window.device.platform;
+    var platform = "Android"; console.log("web1");
+    if (window.device != undefined) {  console.log("web2");
+      uuid = window.device.uuid;                 console.log("web3");
+      platform = window.device.platform;                         console.log("web4");
     }
-
+    console.log("web5");
     this.initializeDatabase = function(successCallback, errorCallback) {
         var self = this;
         this.db = window.openDatabase("BNI", "1.0", "BNI", 200000);

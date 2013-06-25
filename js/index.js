@@ -25,7 +25,7 @@ var app = {
     // Bind any events that are required on startup. Common events are:
     // 'load', 'deviceready', 'offline', and 'online'.
     bindEvents: function() {      console.log("bind");
-        document.addEventListener('load', this.onLoad, false);
+        //document.addEventListener('load', this.onLoad, false);
         document.addEventListener('deviceready', this.onDeviceReady, false);
         //window.addEventListener("orientationchange", orientationChange, true);
     },

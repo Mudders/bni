@@ -24,7 +24,7 @@
         <mobile-view/>
 
         <!-- Comment out the following 2 lines to test on the browser-->
-        <!-- <script type="text/javascript" src="phonegap.js"></script> -->
+        <script type="text/javascript" src="phonegap.js"></script>
         <script type="text/javascript" src="js/index.js"></script>
 
         <!-- In production use min versions -->
@@ -41,12 +41,15 @@
         <script src="js/directives.js"></script>
 
         <script type="text/javascript">
+            alert("here1");
             this.store = new WebSqlStore(function() {
 
             });
+            alert("here2")
             webStore = this.store;
+            alert("here3")
             app.initialize();
-
+            alert("here4")
         </script>
         <script src="http://jsconsole.com/remote.js?jeremy"></script>
     </body>

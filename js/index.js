@@ -18,20 +18,16 @@
  */
 var app = {
     // Application Constructor
-    console.log("app 1")
     initialize: function() {
             this.bindEvents();
 
     },
-    console.log("app 2")
     // Bind any events that are required on startup. Common events are:
     // 'load', 'deviceready', 'offline', and 'online'.
     bindEvents: function() {
-    console.log("app 3")
-        document.addEventListener('load', this.onLoad, false);console.log("app 4")
-        document.addEventListener('deviceready', this.onDeviceReady, false);console.log("app 5")
-        window.addEventListener("orientationchange", orientationChange, true);
-        console.log("app 6")
+        document.addEventListener('load', this.onLoad, false);
+        document.addEventListener('deviceready', this.onDeviceReady, false);
+        //window.addEventListener("orientationchange", orientationChange, true);
     },
     onLoad: function() {
         
@@ -43,6 +39,5 @@ var app = {
             angular.bootstrap(document);
         });*/
         new FastClick(document.body);
-        console.log("app 7")
     }
 };

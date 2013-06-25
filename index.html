@@ -13,8 +13,8 @@
         <link rel="stylesheet" type="text/css" href="css/topcoat-mobile-dark.css">
         <title>BNI KZN</title>
 
-        <script type='text/javascript' >
-          var webStore = "";
+        <script type="text/javascript">
+
         </script>
     </head>
     
@@ -41,13 +41,17 @@
         <script src="js/directives.js"></script>
 
         <script type="text/javascript">
+            console.log("start");
+            var webStore = "";
+            console.log("start");
+            console.log("start1");
             this.store = new WebSqlStore(function() {
 
             });
             webStore = this.store;
-            console.log("here3 ")
+            console.log("here3 ");
             app.initialize();
-            console.log("here4")
+            console.log("here4");
         </script>
 
     </body>

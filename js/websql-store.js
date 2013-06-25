@@ -1,17 +1,17 @@
 var WebSqlStore = function(successCallback, errorCallback) {
     //console.log(new Date().getTime())
     var uuid = "12345";
-    var platform = "Android"; console.log("web1");
-    if (window.device != undefined) {  console.log("web2");
-      uuid = window.device.uuid;                 console.log("web3");
-      platform = window.device.platform;                         console.log("web4");
+    var platform = "Android";
+    if (window.device != undefined) {
+      uuid = window.device.uuid;
+      platform = window.device.platform;
     }
-    console.log("web5");
+
     this.initializeDatabase = function(successCallback, errorCallback) {
-        var self = this;        console.log("web7");
-        this.db = window.openDatabase("BNI", "1.0", "BNI", 200000);  console.log("web8");
+        var self = this;
+        this.db = window.openDatabase("BNI", "1.0", "BNI", 200000);
         this.db.transaction(
-                function(tx) {           console.log("web9");
+                function(tx) {
                     // Check if tables exist - if they do then user already exists, else create
                     var sql = "SELECT name FROM sqlite_master WHERE type='table' AND name='chapter';";
                     tx.executeSql(sql, [], function(tx, results) {  console.log("web10");

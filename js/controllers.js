@@ -102,7 +102,7 @@ function ChaptersCtrl($scope,navSvc,$rootScope) {
 
 function MembersCtrl($scope, $routeParams, navSvc,$rootScope) {
     $rootScope.showSettings = false;
-    $scope.slidePage = function (path,type) {
+    $scope.slidePage = function (path,type) {    console.log("MembersCtrl : " + path);
         navSvc.slidePage(path,type);
     };
     $scope.back = function () {
@@ -121,13 +121,14 @@ function MembersCtrl($scope, $routeParams, navSvc,$rootScope) {
     webStore.findChapterMembersById($scope.params.id, function(members) {
       $scope.members = [];
       $scope.members = members;
+      console.log("MembersCtrl : " + members.length);
       $scope.$apply();
     });
 }
 
 function MemberDetailCtrl($scope, $routeParams, navSvc,$rootScope) {
     $rootScope.showSettings = false;
-    $scope.slidePage = function (path,type) {   console.log(path + " " + type)
+    $scope.slidePage = function (path,type) {   console.log("MemberDetailCtrl : " + path);
         navSvc.slidePage(path,type);
     };
     $scope.back = function () {
@@ -152,7 +153,7 @@ function MemberDetailCtrl($scope, $routeParams, navSvc,$rootScope) {
 
 function AddToContactsCtrl($scope, $routeParams, navSvc,$rootScope, $route) {
     $rootScope.showSettings = false;
-    $scope.slidePage = function (path,type) {
+    $scope.slidePage = function (path,type) {  console.log("AddToContactsCtrl : " + path);
         navSvc.slidePage(path,type);
     };
     $scope.back = function () {
@@ -198,7 +199,7 @@ function addToContacts(member) {
         ContactOrganization.name = member.company;
         contact.ContactOrganization = ContactOrganization;
         contact.save();
-
+        console.log("addToContacts")
         app.showAlert(
             member.name + ' Saved',  // message
            'Done'                  // buttonName

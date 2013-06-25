@@ -45,10 +45,9 @@
             var webStore = "";
             console.log("start");
             console.log("start1");
-            this.store = new WebSqlStore(function() {
+            webStore = new WebSqlStore(function() {
 
             });
-            webStore = this.store;
             console.log("here3 ");
             app.initialize();
             console.log("here4");

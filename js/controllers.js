@@ -79,6 +79,26 @@ function ContactsCtrl($scope) {
     }
 }
 
+function SearchIndustryCtrl($scope,navSvc,$rootScope) {
+
+
+    $rootScope.showSettings = false;
+    $scope.slidePage = function (path,type) {    console.log("ChaptersCtrl : " + path);
+        navSvc.slidePage(path,type);
+    };
+    $scope.back = function () {
+        navSvc.back();
+    };
+    $scope.changeSettings = function () {
+        $rootScope.showSettings = true;
+    };
+    $scope.closeOverlay = function () {
+        $rootScope.showSettings = false;
+    };
+
+
+}
+
 function ChaptersCtrl($scope,navSvc,$rootScope) {
     $rootScope.showSettings = false;
     $scope.slidePage = function (path,type) {    console.log("ChaptersCtrl : " + path);

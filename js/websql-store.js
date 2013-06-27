@@ -30,6 +30,7 @@ var WebSqlStore = function(successCallback, errorCallback) {
                                 eval( returnValue );
                               });
                           });
+
                         }
                         else {
                           console.log("update tables");
@@ -39,7 +40,10 @@ var WebSqlStore = function(successCallback, errorCallback) {
                               function(tx) {
                                 eval( returnValue );
                               });
+
                           });
+
+
                         }
                     });
 
@@ -242,6 +246,31 @@ var WebSqlStore = function(successCallback, errorCallback) {
         );
     }
 
+    this.findAllIndustries = function(callback) {
+        this.db.transaction(
+            function(tx) {
+
+                var sql = "SELECT e.id, e.keyword " +
+                    "FROM keyword e ";
+
+                tx.executeSql(sql, [], function(tx, results) {
+                    var len = results.rows.length,
+                        industries = [],
+                        i = 0;
+                    for (; i < len; i = i + 1) {
+                        industries.push(results.rows.item(i).keyword);
+                        //alert(results.rows.item(i).keyword)
+                    }
+                    callback(industries);
+                });
+            },
+            function(error) {
+                alert("Transaction Error: " + error.message);
+            }
+        );
+    }
+
+
     this.findMembersByIndustry = function(id, callback) {
         this.db.transaction(
             function(tx) {
@@ -358,3 +387,25 @@ var WebSqlStore = function(successCallback, errorCallback) {
         }
     }
 
+    function findAllIndustries(db, tx) {
+        this.db.transaction(
+            function(tx) {
+
+                var sql = "SELECT e.id, e.keyword " +
+                    "FROM keyword e ";
+
+                tx.executeSql(sql, [], function(tx, results) {
+                    var len = results.rows.length,
+                        industries = [],
+                        i = 0;
+                    for (; i < len; i = i + 1) {
+                        industries.push(results.rows.item(i).keyword);
+                    }
+                    callback(industries);
+                });
+            },
+            function(error) {
+                alert("Transaction Error: " + error.message);
+            }
+        );
+    }

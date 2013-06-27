@@ -7,6 +7,7 @@
 
         <!-- Use the .min version of bootstrap files in production -->
         <!-- Use the following if you want to use responsive design -->
+        <link href="css/ui-lightness/jquery-ui-1.10.3.custom.css" rel="stylesheet">
         <link rel="stylesheet" type="text/css" href="css/index.css" />
 
         <link rel="stylesheet" type="text/css" href="css/mobile-nav.css" />
@@ -22,9 +23,8 @@
 
 
         <mobile-view/>
-        <script src="http://jsconsole.com/remote.js?jeremy"></script>
         <!-- Comment out the following 2 lines to test on the browser-->
-        <script type="text/javascript" src="phonegap.js"></script>
+        <!-- <script type="text/javascript" src="phonegap.js"></script> -->
         <script type="text/javascript" src="js/index.js"></script>
 
         <!-- In production use min versions -->
@@ -32,6 +32,7 @@
         <script src="lib/angular.js"></script>
         <script src="lib/angular-mobile.js"></script>
         <script src="lib/mobile-nav.js"></script>
+        <script src="lib/jquery-ui-1.10.3.custom.js"></script>
 
         <script src="js/websql-store.js"></script>
         <script src="js/app.js"></script>
@@ -42,6 +43,7 @@
 
         <script type="text/javascript">
             var webStore = "";
+            var keywords = [];
             app.initialize();
         </script>
 

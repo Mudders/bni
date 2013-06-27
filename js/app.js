@@ -9,7 +9,7 @@ var myApp = angular.module('myApp', ['myApp.filters', 'myApp.services', 'myApp.d
     .config(['$routeProvider', function($routeProvider) {
         $routeProvider.when('/', {templateUrl: 'partials/homeView.html', controller: 'HomeCtrl'});
         $routeProvider.when('/view1', {templateUrl: 'partials/chaptersView.html'});
-        $routeProvider.when('/view2', {templateUrl: 'partials/searchByIndustry.html'});
+        $routeProvider.when('/view2', {templateUrl: 'partials/searchByIndustryView.html'});
         $routeProvider.when('/view3/:id', {templateUrl: 'partials/membersView.html', controller: 'MembersCtrl'});
         $routeProvider.when('/view4/:id', {templateUrl: 'partials/memberDetailView.html', controller: 'MemberDetailCtrl'});
         $routeProvider.when('/view5/:id', {templateUrl: 'partials/addMemberToContactsView.html', controller: 'AddToContactsCtrl'});

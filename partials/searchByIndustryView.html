@@ -14,10 +14,10 @@
     </div>
 </div>
 
-<div ng-controller="ChapterCtrl">
+<div ng-controller="SearchIndustryCtrl">
     <form ng-submit="find()">
         <div class="left" style="float:left">
-            <input ng-model="searchTxt" type="text" value="" placeholder="search" class="topcoat-search-input">
+            <input placeholder="Search..." type="text" ng-model="foo" auto-complete class="topcoat-search-input" />
         </div>
     </form>
     

@@ -37,7 +37,7 @@ var app = {
     onDeviceReady: function() {
         /*angular.element(document).ready(function() {
             angular.bootstrap(document);
-        });*/                              console.log("ondevred");
+        });*/
         //new FastClick(document.body);
         console.log("ondeviceready");
         webStore = new WebSqlStore(function() {});  console.log("ondeviceready1");

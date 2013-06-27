@@ -16,10 +16,10 @@
 
 
 <div class="topcoat-list__container list" ng-controller="MembersCtrl">
-    <h3 class="topcoat-list__header">All '{{ members[0].chaptername }}' Members</h3>
-    <div ng-show="members.length>0">
+
+      <div class="topcoat-list__container list" ng-show="members.length>0">
+      <h3 class="topcoat-list__header">All '{{ members[0].chaptername }}' Members</h3>
       <p class="centerize">{{ members[0].chaptername }}</p>
-      <div class="topcoat-list__container list">
             <ul class=topcoat-list>
                 <li ng-repeat="member in members" class="topcoat-list__item" ng-click="slidePage('/view4/{{member.memberid}}')">
                     <div style="width:90%;overflow:auto;">
@@ -28,9 +28,11 @@
                       <div style="width:150px;float:left;">{{member.area}}</div>
                     </div>
                 </li>
+                <li class="topcoat-list__item">
+                  &nbsp;
+                </li>
             </ul>
         </div>
-    </div>
     <div class="topcoat-navigation-bar">
         <h1 class="righterize"  ng-show="!showURL" ng-swipe-left="showURL=true">Version  {{' %VERSION%' | interpolate}} </h1>
     </div>

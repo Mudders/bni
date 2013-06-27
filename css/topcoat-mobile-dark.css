@@ -668,6 +668,9 @@ limitations under the License.
   border-top: 1px solid rgba(0,0,0,0.05);
 }
 
+.topcoat-list__item a {
+  color: #c6c8c8;
+}
 /*
 Copyright 2012 Adobe Systems Inc.;
 Licensed under the Apache License, Version 2.0 (the "License");

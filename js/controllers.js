@@ -153,9 +153,6 @@ function MemberDetailCtrl($scope, $routeParams, navSvc,$rootScope) {
     });
 
 
-    $scope.test = function(callback){
-        eval(callback);
-    };
 }
 
 function AddToContactsCtrl($scope, $routeParams, navSvc,$rootScope, $route) {

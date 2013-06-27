@@ -16,9 +16,11 @@
 
 
 <div class="topcoat-list__container list" ng-controller="MemberDetailCtrl">
-    <h3 class="topcoat-list__header">'{{ member.chaptername }}'</h3>
-      <p class="centerize">{{ member.chaptername }}</p>
+
+
       <div class="topcoat-list__container list">
+      <h3 class="topcoat-list__header">'{{ member.chaptername }}'</h3>
+      <p class="centerize">{{ member.chaptername }}</p>
             <ul class=topcoat-list>
                 <li>
                   <h1>{{member.name}}</h1>
@@ -26,11 +28,14 @@
                 </li>
                 <li ng-show="member.chaptername.length>0" ng-click="slidePage('/view3/' + member.chapterid)" class="topcoat-list__item"><strong>Chapter : </strong> {{member.chaptername}}</li>
                 <li ng-show="member.keywords.length>0" class="topcoat-list__item"><strong>Industry : </strong> {{member.keywords}}</li>
-                <li ng-show="member.phone.length>0" class="topcoat-list__item" ng-click="test('window.open(\'tel:' + member.phone + '\');')"><strong>Call Office : </strong> {{member.phone}}</li>
+                <li ng-show="member.phone.length>0" class="topcoat-list__item"><a href="tel:{{member.phone}}"><strong>Call Office : </strong> {{member.phone}}</a></li>
                 <li ng-show="member.mobile.length>0" class="topcoat-list__item"><a href="tel:{{member.mobile}}"><strong>Call Cell : </strong> {{member.mobile}}</a></li>
                 <li ng-show="member.website.length>0" class="topcoat-list__item"><a href="{{member.website}}" target="_new"><strong>Website : </strong> {{member.website}}</a></li>
                 <li ng-show="member.address.length>0" class="topcoat-list__item"><strong>Address : </strong><br/>{{member.address}}</li>
                 <li ng-click="slidePage('/view5/' + member.id)" class="topcoat-list__item"><strong>Add to Contacts</strong></li>
+                <li class="topcoat-list__item">
+                  &nbsp;
+                </li>
             </ul>
       </div>
     <div class="topcoat-navigation-bar">

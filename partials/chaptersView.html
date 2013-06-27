@@ -16,10 +16,11 @@
 
 
 <div class="topcoat-list__container list" ng-controller="ChaptersCtrl">
-    <h3 class="topcoat-list__header">All BNI KZN Chapters</h3>
-    <div ng-show="chapters.length>0">
-      <p class="centerize">Number of Chapters found: {{chapters.length}}</p>
-      <div class="topcoat-list__container list">
+
+
+      <div class="topcoat-list__container list"  ng-show="chapters.length>0">
+        <h3 class="topcoat-list__header">All BNI KZN Chapters</h3>
+        <p class="centerize">Number of Chapters found: {{chapters.length}}</p>
             <ul class=topcoat-list>
                 <li ng-repeat="chapter in chapters" class="topcoat-list__item" ng-click="slidePage('/view3/{{chapter.id}}')">
                     <div style="width:100%;overflow:auto;">
@@ -30,9 +31,11 @@
                       <div style="width:100px;float:left;">{{chapter.meetingtime}} &nbsp;</div>
                     </div>
                 </li>
+                <li class="topcoat-list__item">
+                  &nbsp;
+                </li>
             </ul>
         </div>
-    </div>
     <div class="topcoat-navigation-bar">
         <h1 class="righterize"  ng-show="!showURL" ng-swipe-left="showURL=true">Version  {{' %VERSION%' | interpolate}} </h1>
     </div>

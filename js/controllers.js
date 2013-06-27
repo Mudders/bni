@@ -80,7 +80,7 @@ function ContactsCtrl($scope) {
 
 function ChaptersCtrl($scope,navSvc,$rootScope) {
     $rootScope.showSettings = false;
-    $scope.slidePage = function (path,type) {
+    $scope.slidePage = function (path,type) {    console.log("ChaptersCtrl : " + path);
         navSvc.slidePage(path,type);
     };
     $scope.back = function () {

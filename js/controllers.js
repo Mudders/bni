@@ -79,7 +79,7 @@ function ContactsCtrl($scope) {
     }
 }
 
-function SearchIndustryCtrl($scope,navSvc,$rootScope) {
+function SearchIndustryCtrl($scope,navSvc,$rootScope,$location) {
 
 
     $rootScope.showSettings = false;
@@ -97,7 +97,8 @@ function SearchIndustryCtrl($scope,navSvc,$rootScope) {
     };
 
     $scope.find = function() {
-      console.log("ddf " + $('#industry-id').val());
+      console.log("IndustryID " + $('#industry-id').val());
+      $location.path("/view6/" + industryID);
     }
 }
 

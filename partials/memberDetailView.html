@@ -26,7 +26,7 @@
                 </li>
                 <li ng-show="member.chaptername.length>0" ng-click="slidePage('/view3/' + member.chapterid)" class="topcoat-list__item"><strong>Chapter : </strong> {{member.chaptername}}</li>
                 <li ng-show="member.keywords.length>0" class="topcoat-list__item"><strong>Industry : </strong> {{member.keywords}}</li>
-                <li ng-show="member.phone.length>0" class="topcoat-list__item"><a href="tel:{{member.phone}}"><strong>Call Office : </strong> {{member.phone}}</a></li>
+                <li ng-show="member.phone.length>0" class="topcoat-list__item" ng-click="test('window.location(\'tel:' + member.phone + '\');')"><strong>Call Office : </strong> {{member.phone}}</li>
                 <li ng-show="member.mobile.length>0" class="topcoat-list__item"><a href="tel:{{member.mobile}}"><strong>Call Cell : </strong> {{member.mobile}}</a></li>
                 <li ng-show="member.website.length>0" class="topcoat-list__item"><a href="{{member.website}}" target="_new"><strong>Website : </strong> {{member.website}}</a></li>
                 <li ng-show="member.address.length>0" class="topcoat-list__item"><strong>Address : </strong><br/>{{member.address}}</li>

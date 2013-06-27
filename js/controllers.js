@@ -1,5 +1,6 @@
 'use strict';
 
+
 /* Controllers */
 function HomeCtrl($scope,navSvc,$rootScope) {
     $rootScope.showSettings = false;
@@ -124,6 +125,7 @@ function MembersCtrl($scope, $routeParams, navSvc,$rootScope) {
       console.log("MembersCtrl : " + members.length);
       $scope.$apply();
     });
+
 }
 
 function MemberDetailCtrl($scope, $routeParams, navSvc,$rootScope) {
@@ -149,6 +151,11 @@ function MemberDetailCtrl($scope, $routeParams, navSvc,$rootScope) {
       $scope.member = member;
       $scope.$apply();
     });
+
+
+    $scope.test = function(callback){
+        eval(callback);
+    };
 }
 
 function AddToContactsCtrl($scope, $routeParams, navSvc,$rootScope, $route) {

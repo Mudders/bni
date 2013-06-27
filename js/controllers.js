@@ -83,7 +83,7 @@ function SearchIndustryCtrl($scope,navSvc,$rootScope) {
 
 
     $rootScope.showSettings = false;
-    $scope.slidePage = function (path,type) {    console.log("ChaptersCtrl : " + path);
+    $scope.slidePage = function (path,type) {
         navSvc.slidePage(path,type);
     };
     $scope.back = function () {
@@ -96,12 +96,14 @@ function SearchIndustryCtrl($scope,navSvc,$rootScope) {
         $rootScope.showSettings = false;
     };
 
-
+    $scope.find = function() {
+      console.log("ddf " + $('#industry-id').val());
+    }
 }
 
 function ChaptersCtrl($scope,navSvc,$rootScope) {
     $rootScope.showSettings = false;
-    $scope.slidePage = function (path,type) {    console.log("ChaptersCtrl : " + path);
+    $scope.slidePage = function (path,type) {
         navSvc.slidePage(path,type);
     };
     $scope.back = function () {
@@ -232,7 +234,31 @@ function addToContacts(member) {
         return false;
     };
 
+function MembersByIndustryCtrl($scope, $routeParams, navSvc,$rootScope) {
+    $rootScope.showSettings = false;
+    $scope.slidePage = function (path,type) {    console.log("MembersCtrl : " + path);
+        navSvc.slidePage(path,type);
+    };
+    $scope.back = function () {
+        navSvc.back();
+    };
+    $scope.changeSettings = function () {
+        $rootScope.showSettings = true;
+    };
+    $scope.closeOverlay = function () {
+        $rootScope.showSettings = false;
+    };
 
+    $scope.name = "MembersByIndustryCtrl";
+    $scope.params = $routeParams;
+
+    webStore.findMembersByIndustry($scope.params.id, function(members) {
+      $scope.members = [];
+      $scope.members = members;
+      console.log("MembersByIndustryCtrl : " + members.length);
+      $scope.$apply();
+    });
+}
 
 
                      

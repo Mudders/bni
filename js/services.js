@@ -176,11 +176,4 @@ myApp.factory('contacts', function ($rootScope, phonegapReady) {
     }
 });
 
-myApp.factory('autoCompleteDataService', [function() {
-    return {
-        getSource: function() {
-            //this is where you'd set up your source... could be an external source, I suppose. 'something.php'
-            return ['apples', 'oranges', 'bananas']
-        }
-    }
-}]);
+

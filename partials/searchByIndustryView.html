@@ -17,7 +17,8 @@
 <div ng-controller="SearchIndustryCtrl">
     <form ng-submit="find()">
         <div class="left" style="float:left">
-            <input placeholder="Search..." type="text" ng-model="foo" auto-complete class="topcoat-search-input" />
+            <input placeholder="Search..." type="text" ng-model="industry" auto-complete class="topcoat-search-input" />
+            <input type="hidden" id="industry-id" />
         </div>
     </form>
     

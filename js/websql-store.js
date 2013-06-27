@@ -258,8 +258,8 @@ var WebSqlStore = function(successCallback, errorCallback) {
                         industries = [],
                         i = 0;
                     for (; i < len; i = i + 1) {
-                        industries.push(results.rows.item(i).keyword);
-                        //alert(results.rows.item(i).keyword)
+                        var obj = { value: results.rows.item(i).id, label: results.rows.item(i).keyword };
+                        industries.push(obj);
                     }
                     callback(industries);
                 });
@@ -385,27 +385,4 @@ var WebSqlStore = function(successCallback, errorCallback) {
                         alert('INSERT error: ' + error.message);
                     });
         }
-    }
-
-    function findAllIndustries(db, tx) {
-        this.db.transaction(
-            function(tx) {
-
-                var sql = "SELECT e.id, e.keyword " +
-                    "FROM keyword e ";
-
-                tx.executeSql(sql, [], function(tx, results) {
-                    var len = results.rows.length,
-                        industries = [],
-                        i = 0;
-                    for (; i < len; i = i + 1) {
-                        industries.push(results.rows.item(i).keyword);
-                    }
-                    callback(industries);
-                });
-            },
-            function(error) {
-                alert("Transaction Error: " + error.message);
-            }
-        );
     }

@@ -28,7 +28,7 @@ angular.module('myApp.directives', [])
                                 $( "#industry-id" ).val(ui.item.value );
                                 var industryID = ui.item.value;
                                 // redirect this to the MembersByIndustryView
-                                scope.$apply(function() { $location.path("/view6/" + industryID); });
+                                //scope.$apply(function() { $location.path("/view6/" + industryID); });
 
                                 return false;
                               },

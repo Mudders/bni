@@ -25,7 +25,7 @@ angular.module('myApp.directives', [])
                             },select: function(event, ui) {
                                 // got our selected item - now to somehow redirect the page to this items list of people...
                                 elem.val( ui.item.label );
-                                $( "#industry-id" ).val(ui.item.value );
+                                $( "#industryid" ).val(ui.item.value );
                                 var industryID = ui.item.value;
                                 // redirect this to the MembersByIndustryView
                                 //scope.$apply(function() { $location.path("/view6/" + industryID); });

@@ -17,22 +17,12 @@
 <div ng-controller="SearchIndustryCtrl">
     <form ng-submit="find()">
         <div class="left">
-            <input placeholder="Search..." type="text" ng-model="industry" auto-complete class="topcoat-search-input" /><img src="img/search_light.svg" style="width:16px;height:16px;" ng-click="find()" />
-            <input type="hidden" id="industry-id" />
+            <input placeholder="Search..." type="text" ng-model="industry" auto-complete class="topcoat-search-input" /><img src="img/search_light.svg" style="width:16px;height:16px;" ng-click="slidePage('/view6/')" />
+            <input type="hidden" id="industryid" ng-model="industryid" />
         </div>
     </form>
     
-    <div ng-show="chapters.length>0">
-        <p class="centerize">Number of Chapters found: {{chapters.length}}</p>
-        <div class="topcoat-list__container list">
-            <ul class=topcoat-list>
-                <li ng-repeat="chapter in chapters" class="topcoat-list__item">
-                    <p>{{ chapter.name.formatted }}
-                    <a href="chapterView.html/{{chapter.id.value}}" style="float:right">{{ chapter.name.value }}</a></p>
-                </li>
-            </ul>
-        </div>
-    </div>
+
 </div>
 
 <ng-include src="'partials/settingsOverlay.html'"></ng-include>

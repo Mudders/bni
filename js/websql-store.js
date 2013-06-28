@@ -6,58 +6,69 @@ var WebSqlStore = function(successCallback, errorCallback) {
       uuid = window.device.uuid;
       platform = window.device.platform;
     }
+    var networkState = "WIFI";
+    if (navigator.network != undefined)
+      networkState = navigator.network.connection.type;
+
+    if (window.localStorage.getItem("WIFISync") == undefined)
+      window.localStorage.setItem("WIFISync", "yes");
+
+    console.log("NETWORK STATE : " + networkState);
 
     this.initializeDatabase = function(successCallback, errorCallback) {
-        var self = this;
-        this.db = window.openDatabase("BNI", "1.0", "BNI", 200000);
-        this.db.transaction(
-                function(tx) {
-                    // Check if tables exist - if they do then user already exists, else create
-                    var sql = "SELECT name FROM sqlite_master WHERE type='table' AND name='chapter';";
-                    tx.executeSql(sql, [], function(tx, results) {  console.log("web10");
-                        if (results.rows.length == 0) {
-                          console.log("create tables");
-                          // no user table so means we need to create all our tables...
-                          self.createChapterTable(tx);
-                          self.createMemberTable(tx);
-                          self.createKeywordTable(tx);
-                          self.createKeywordMemberTable(tx);
-                          // Now we need to pass through to the server the details of this user.
-                          self.loadXMLDoc(tx, uuid, platform, function( returnValue ){
-                              this.db = window.openDatabase("BNI", "1.0", "BNI DB", 200000);
-                              this.db.transaction(
-                              function(tx) {
-                                eval( returnValue );
-                              });
+    var self = this;
+    this.db = window.openDatabase("BNI", "1.0", "BNI", 200000);
+    this.db.transaction(
+            function(tx) {
+                // Check if tables exist - if they do then user already exists, else create
+                var sql = "SELECT name FROM sqlite_master WHERE type='table' AND name='chapter';";
+                tx.executeSql(sql, [], function(tx, results) {  console.log("web10");
+                    if (results.rows.length == 0) {
+                      console.log("create tables");
+                      // no user table so means we need to create all our tables...
+                      self.createChapterTable(tx);
+                      self.createMemberTable(tx);
+                      self.createKeywordTable(tx);
+                      self.createKeywordMemberTable(tx);
+                      // Now we need to pass through to the server the details of this user.
+                      self.loadXMLDoc(tx, uuid, platform, function( returnValue ){
+                          this.db = window.openDatabase("BNI", "1.0", "BNI DB", 200000);
+                          this.db.transaction(
+                          function(tx) {
+                            eval( returnValue );
+                          });
+                      });
+                      window.localStorage.setItem("WIFISync", "yes");
+
+                    }
+                    else {
+                      console.log("update tables");
+                      self.loadXMLDoc(tx, uuid, platform, function( returnValue ){
+                          this.db = window.openDatabase("BNI", "1.0", "BNI DB", 200000);
+                          this.db.transaction(
+                          function(tx) {
+                            eval( returnValue );
                           });
 
-                        }
-                        else {
-                          console.log("update tables");
-                          self.loadXMLDoc(tx, uuid, platform, function( returnValue ){
-                              this.db = window.openDatabase("BNI", "1.0", "BNI DB", 200000);
-                              this.db.transaction(
-                              function(tx) {
-                                eval( returnValue );
-                              });
+                      });
+                      if (window.localStorage.getItem("WIFISync") == undefined) {
+                        window.localStorage.setItem("WIFISync", 'yes');
+                      }
 
-                          });
+                    }
+                });
 
-
-                        }
-                    });
-
-                },
-                function(error) {
-                    console.log('Transaction error: ' + error);
-                    if (errorCallback) errorCallback();
-                },
-                function() {
-                    console.log('Transaction success');
-                    if (successCallback) successCallback();
-                }
-        )
-    }
+            },
+            function(error) {
+                console.log('Transaction error: ' + error);
+                if (errorCallback) errorCallback();
+            },
+            function() {
+                console.log('Transaction success');
+                if (successCallback) successCallback();
+            }
+      )
+  }
 
     this.createChapterTable = function(tx) {
         tx.executeSql('DROP TABLE IF EXISTS chapter');
@@ -311,8 +322,12 @@ var WebSqlStore = function(successCallback, errorCallback) {
       });
   }
   console.log("web6");
-  this.initializeDatabase(successCallback, errorCallback);
 
+  if (window.localStorage.getItem("WIFISync") == "yes" && networkState == "WIFI") {
+    console.log("call init db...");
+    this.initializeDatabase(successCallback, errorCallback);
+
+  }
 
 }
 

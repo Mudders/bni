@@ -1,7 +1,14 @@
 <div class="topcoat-overlay-bg" ng-show="showSettings" ></div>
-<aside id='settingsOverlay2' ng-show="showSettings" class="topcoat-overlay"  ng-controller="HomeCtrl">
+<aside id='settingsOverlay2' ng-show="showSettings" class="topcoat-overlay"  ng-controller="SettingsCtrl">
     <h1>Version {{' %VERSION%' | interpolate}}</h1>
-    <div class="topcoat-overlay-buttons">
-        <button role="button" class="topcoat-button--cta" ng-click="closeOverlay()">Ok</button>
-    </div>
+    <form>
+      <p class="left"><strong style="padding-right:10px;">Only sync on WIFI?</strong>  Yes <input type="radio" ng-model="WIFI" name="WIFI" value="yes" /> |
+            No <input type="radio" ng-model="WIFI" name="WIFI" value="no" />
+      </p>
+
+      <div class="topcoat-overlay-buttons">
+          <button role="button" class="topcoat-button--cta" ng-click="saveChanges()">Save</button>
+          <button role="button" class="topcoat-button--cta" ng-click="closeOverlay()">Cancel</button>
+      </div>
+    </form>
 </aside>

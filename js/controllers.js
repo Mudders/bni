@@ -84,9 +84,7 @@ function SearchIndustryCtrl($scope,navSvc,$rootScope,$location) {
 
     $rootScope.showSettings = false;
     $scope.slidePage = function (path,type) {
-        console.log("path " + path);
         path = path + $('#industryid').val();
-        console.log("IndustryID " + path);
         navSvc.slidePage(path,type);
     };
     $scope.back = function () {
@@ -99,12 +97,6 @@ function SearchIndustryCtrl($scope,navSvc,$rootScope,$location) {
         $rootScope.showSettings = false;
     };
 
-    $scope.find = function() {
-      $scope.slidePage("/view6/" + $('#industryid').val())
-      console.log("/view6/" + $('#industryid').val());
-      console.log("LOCATION : " + $location.path());
-      return true;
-    }
 
 }
 
@@ -132,7 +124,7 @@ function ChaptersCtrl($scope,navSvc,$rootScope) {
 
 function MembersCtrl($scope, $routeParams, navSvc,$rootScope) {
     $rootScope.showSettings = false;
-    $scope.slidePage = function (path,type) {    console.log("MembersCtrl : " + path);
+    $scope.slidePage = function (path,type) {
         navSvc.slidePage(path,type);
     };
     $scope.back = function () {
@@ -159,7 +151,7 @@ function MembersCtrl($scope, $routeParams, navSvc,$rootScope) {
 
 function MemberDetailCtrl($scope, $routeParams, navSvc,$rootScope) {
     $rootScope.showSettings = false;
-    $scope.slidePage = function (path,type) {   console.log("MemberDetailCtrl : " + path);
+    $scope.slidePage = function (path,type) {
         navSvc.slidePage(path,type);
     };
     $scope.back = function () {
@@ -186,7 +178,7 @@ function MemberDetailCtrl($scope, $routeParams, navSvc,$rootScope) {
 
 function AddToContactsCtrl($scope, $routeParams, navSvc,$rootScope, $route) {
     $rootScope.showSettings = false;
-    $scope.slidePage = function (path,type) {  console.log("AddToContactsCtrl : " + path);
+    $scope.slidePage = function (path,type) {
         navSvc.slidePage(path,type);
     };
     $scope.back = function () {
@@ -243,7 +235,7 @@ function addToContacts(member) {
 
 function MembersByIndustryCtrl($scope, $routeParams, navSvc,$rootScope) {
     $rootScope.showSettings = false;
-    $scope.slidePage = function (path,type) {    console.log("MembersCtrl : " + path);
+    $scope.slidePage = function (path,type) {
         navSvc.slidePage(path,type);
     };
     $scope.back = function () {
@@ -265,6 +257,32 @@ function MembersByIndustryCtrl($scope, $routeParams, navSvc,$rootScope) {
       console.log("MembersByIndustryCtrl : " + members.length);
       $scope.$apply();
     });
+}
+
+function SettingsCtrl($scope,navSvc,$rootScope) {
+    $rootScope.showSettings = false;
+    $scope.slidePage = function (path,type) {
+        navSvc.slidePage(path,type);
+    };
+    $scope.back = function () {
+        navSvc.back();
+    };
+    $scope.changeSettings = function () {
+        $rootScope.showSettings = true;
+    };
+    $scope.closeOverlay = function () {
+        $rootScope.showSettings = false;
+    };
+    $scope.saveChanges = function() {
+      // need to set a default variable as yes - and load that value when this page loads...
+
+      console.log("Only WIFI? : " + $("input:radio[name=WIFI]:checked").val());
+      window.localStorage.setItem("WIFISync", $("input:radio[name=WIFI]:checked").val());
+      webStore = new WebSqlStore(function() {});
+      $scope.closeOverlay();
+    }
+
+    $scope.WIFI = window.localStorage.getItem("WIFISync");
 }
 
 

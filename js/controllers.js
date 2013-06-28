@@ -79,12 +79,14 @@ function ContactsCtrl($scope) {
     }
 }
 
-function SearchIndustryCtrl($scope,navSvc,$rootScope) {
+function SearchIndustryCtrl($scope,navSvc,$rootScope,$location) {
 
 
     $rootScope.showSettings = false;
     $scope.slidePage = function (path,type) {
+        console.log("path " + path);
         path = path + $('#industryid').val();
+        console.log("IndustryID " + path);
         navSvc.slidePage(path,type);
     };
     $scope.back = function () {
@@ -99,6 +101,8 @@ function SearchIndustryCtrl($scope,navSvc,$rootScope) {
 
     $scope.find = function() {
       $scope.slidePage("/view6/" + $('#industryid').val())
+      console.log("/view6/" + $('#industryid').val());
+      console.log("LOCATION : " + $location.path());
       return true;
     }
 

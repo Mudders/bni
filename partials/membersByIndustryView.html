@@ -18,7 +18,7 @@
 <div class="topcoat-list__container list" ng-controller="MembersByIndustryCtrl">
 
       <div class="topcoat-list__container list" ng-show="members.length>0">
-      <h3 class="topcoat-list__header">All '{{ members[0].keyword }}' Members</h3>
+      <h3 class="topcoat-list__header">All Members in the '{{ members[0].keyword }}' Industry</h3>
       <p class="centerize">{{ members[0].chaptername }}</p>
             <ul class=topcoat-list>
                 <li ng-repeat="member in members" class="topcoat-list__item" ng-click="slidePage('/view4/{{member.memberid}}')">

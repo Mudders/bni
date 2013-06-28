@@ -275,10 +275,11 @@ var WebSqlStore = function(successCallback, errorCallback) {
         this.db.transaction(
             function(tx) {
 
-                var sql = "SELECT e.id, e.keyid, e.memberid, m.id as memberid, m.name, m.chapterid, m.company, c.area   " +
+                var sql = "SELECT e.id, e.keyid, e.memberid, m.id as memberid, m.name, m.chapterid, m.company, c.area, k.keyword   " +
                     "FROM keywordmember e " +
                     "LEFT JOIN member m ON m.id = e.memberid " +
                     "LEFT JOIN chapter c ON c.id = m.chapterid " +
+                    "LEFT JOIN keyword k on k.id = e.keyid " +
                     "WHERE e.keyid=:id";
 
                 tx.executeSql(sql, [id], function(tx, results) {

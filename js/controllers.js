@@ -98,7 +98,7 @@ function SearchIndustryCtrl($scope,navSvc,$rootScope,$location) {
 
     $scope.find = function() {
       console.log("IndustryID " + $('#industry-id').val());
-      $location.path("/view6/" + $('#industry-id').val());
+      $location.url("/view6/" + $('#industry-id').val());
     }
 }
 

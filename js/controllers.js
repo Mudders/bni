@@ -97,11 +97,15 @@ function SearchIndustryCtrl($scope,navSvc,$rootScope,$location) {
     };
 
     $scope.find = function() {
+      console.log("LOCATION : " + $location.path());
       console.log("IndustryID " + $('#industry-id').val());
-      $location.path("/view6/" + $('#industry-id').val());
+      //$location.path("/view6/" + $('#industry-id').val());
+      $scope.slidePage("/view6/" + $('#industry-id').val(), 'modal')
       console.log("/view6/" + $('#industry-id').val());
+      console.log("LOCATION : " + $location.path());
       return true;
     }
+
 }
 
 function ChaptersCtrl($scope,navSvc,$rootScope) {

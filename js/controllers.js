@@ -84,9 +84,7 @@ function SearchIndustryCtrl($scope,navSvc,$rootScope) {
 
     $rootScope.showSettings = false;
     $scope.slidePage = function (path,type) {
-        console.log("path " + path);
-        //path = path + $('#industryid').val();
-        console.log("IndustryID " + path);
+        path = path + $('#industryid').val();
         navSvc.slidePage(path,type);
     };
     $scope.back = function () {
@@ -99,6 +97,10 @@ function SearchIndustryCtrl($scope,navSvc,$rootScope) {
         $rootScope.showSettings = false;
     };
 
+    $scope.find = function() {
+      $scope.slidePage("/view6/" + $('#industryid').val())
+      return true;
+    }
 
 }
 

@@ -26,7 +26,7 @@ var app = {
     // 'load', 'deviceready', 'offline', and 'online'.
     bindEvents: function() {      console.log("bind");
         //document.addEventListener('load', this.onLoad, false);
-        document.addEventListener('deviceready', app.onDeviceReady, false);
+        document.addEventListener('deviceready', this.onDeviceReady(), false);
         //window.addEventListener("orientationchange", orientationChange, true);
     },
     onLoad: function() {
@@ -35,11 +35,8 @@ var app = {
    
     // deviceready Event Handler
     onDeviceReady: function() {
-        /*angular.element(document).ready(function() {
-            angular.bootstrap(document);
-        });*/
-        //new FastClick(document.body);
         console.log("ondeviceready");
-        webSqlStore = new WebSqlStore(function() {});  console.log("ondeviceready1");
+        webSqlStore = new WebSqlStore(function() {});
+        console.log("ondeviceready1");
     }
 };

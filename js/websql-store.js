@@ -18,7 +18,7 @@ var WebSqlStore = function(successCallback, errorCallback) {
     this.initializeDatabase = function(successCallback, errorCallback) {
     var self = this;
     this.db = window.openDatabase("BNI", "1.0", "BNI", 200000);
-    this.db.transaction(
+    this.db.transaction( console.log("inside db transaction");
             function(tx) {
                 // Check if tables exist - if they do then user already exists, else create
                 var sql = "SELECT name FROM sqlite_master WHERE type='table' AND name='chapter';";

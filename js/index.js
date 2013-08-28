@@ -26,7 +26,7 @@ var app = {
     // 'load', 'deviceready', 'offline', and 'online'.
     bindEvents: function() {      console.log("bind");
         //document.addEventListener('load', this.onLoad, false);
-        document.addEventListener('deviceready', this.onDeviceReady, false);
+        document.addEventListener('deviceready', app.onDeviceReady, false);
         //window.addEventListener("orientationchange", orientationChange, true);
     },
     onLoad: function() {

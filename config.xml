@@ -11,7 +11,7 @@
     <icon src="img/logo.png" width="72" height="72" />
     <icon src="img/logo.png" width="48" height="48" />
     <icon src="img/logo.png" width="36" height="36" />
-    <preference name="phonegap-version" value="2.7.0" />
+    <preference name="phonegap-version" value="2.9.0" />
     <description>
         BNI KZN Member application
     </description>

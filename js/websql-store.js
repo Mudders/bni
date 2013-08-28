@@ -1,5 +1,5 @@
 var WebSqlStore = function(successCallback, errorCallback) {
-    //console.log(new Date().getTime())
+    console.log("NEW LOG " + new Date().getTime())
     var uuid = "12345";
     var platform = "Android";
     if (window.device != undefined) {

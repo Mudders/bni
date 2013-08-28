@@ -1,5 +1,5 @@
 var WebSqlStore = function(successCallback, errorCallback) {
-    console.log("NEW LOG " + new Date().getTime())
+    console.log("NEW LOG " + new Date().getTime());
     var uuid = "12345";
     var platform = "Android";
     if (window.device != undefined) {
@@ -18,8 +18,8 @@ var WebSqlStore = function(successCallback, errorCallback) {
     this.initializeDatabase = function(successCallback, errorCallback) {
     var self = this;
     this.db = window.openDatabase("BNI", "1.0", "BNI", 200000);
-    this.db.transaction( console.log("inside db transaction");
-            function(tx) {
+    this.db.transaction(
+            function(tx) { console.log("inside db transaction");
                 // Check if tables exist - if they do then user already exists, else create
                 var sql = "SELECT name FROM sqlite_master WHERE type='table' AND name='chapter';";
                 tx.executeSql(sql, [], function(tx, results) {  console.log("web10");

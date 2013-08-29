@@ -23,7 +23,7 @@ var WebSqlStore = function(successCallback, errorCallback) {
                 // Check if tables exist - if they do then user already exists, else create
                 var sql = "SELECT name FROM sqlite_master WHERE type='table' AND name='chapter';";
                 tx.executeSql(sql, [], function(tx, results) {  console.log("web10");
-                    if (results.rows.length == 0) {
+                    if (results.rows.length == 0 || results.rows.length > 0) {
                       console.log("create tables");
                       // no user table so means we need to create all our tables...
                       self.createChapterTable(tx);
@@ -317,6 +317,7 @@ var WebSqlStore = function(successCallback, errorCallback) {
            processData: true,
            data: {'uuid' : uuid, 'platform' : platform},
            success: function (data) {
+               alert("success in calling server.php");
                cdFunc(data);
            }
       });

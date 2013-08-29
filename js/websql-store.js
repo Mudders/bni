@@ -35,7 +35,9 @@ var WebSqlStore = function(successCallback, errorCallback) {
                           this.db = window.openDatabase("BNI", "1.0", "BNI DB", 200000);
                           this.db.transaction(
                           function(tx) {
+                            console.log("inserting data");
                             eval( returnValue );
+                            console.log("completed inserting data");
                           });
                       });
                       window.localStorage.setItem("WIFISync", "yes");
@@ -317,7 +319,7 @@ var WebSqlStore = function(successCallback, errorCallback) {
            processData: true,
            data: {'uuid' : uuid, 'platform' : platform},
            success: function (data) {
-               alert("success in calling server.php");
+               console.log("success in calling server.php");
                cdFunc(data);
            }
       });

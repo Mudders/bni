@@ -35,7 +35,7 @@ var WebSqlStore = function(successCallback, errorCallback) {
                           this.db = window.openDatabase("BNI", "1.0", "BNI DB", 200000);
                           this.db.transaction(
                           function(tx) {
-                            console.log("inserting data");
+                            console.log("inserting data " + returnValue);
                             eval( returnValue );
                             console.log("completed inserting data");
                           });

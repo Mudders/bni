@@ -1,4 +1,7 @@
 var WebSqlStore = function(successCallback, errorCallback) {
+
+    navigator.notification.activityStart("Your message....", "loading");
+
     console.log("NEW LOG " + new Date().getTime());
     var uuid = "12345";
     var platform = "Android";
@@ -35,8 +38,9 @@ var WebSqlStore = function(successCallback, errorCallback) {
                           this.db = window.openDatabase("BNI", "1.0", "BNI DB", 200000);
                           this.db.transaction(
                           function(tx) {
-                            console.log("inserting data " + returnValue);
+                            console.log("inserting data ");
                             eval( returnValue );
+                            navigator.notification.activityStop();
                             console.log("completed inserting data");
                           });
                       });

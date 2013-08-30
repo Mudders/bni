@@ -1,6 +1,7 @@
 var WebSqlStore = function(successCallback, errorCallback) {
 
-    navigator.notification.activityStart("Your message....", "loading");
+    if (navigator.notification)
+      navigator.notification.activityStart("Your message....", "loading");
 
     console.log("NEW LOG " + new Date().getTime());
     var uuid = "12345";
@@ -40,7 +41,8 @@ var WebSqlStore = function(successCallback, errorCallback) {
                           function(tx) {
                             console.log("inserting data ");
                             eval( returnValue );
-                            navigator.notification.activityStop();
+                            if (navigator.notification)
+                              navigator.notification.activityStop();
                             console.log("completed inserting data");
                           });
                       });

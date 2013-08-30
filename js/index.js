@@ -36,7 +36,6 @@ var app = {
     // deviceready Event Handler
     onDeviceReady: function() {
         console.log("ondeviceready");
-        navigator.splashscreen.show();
         webStore = new WebSqlStore(function() {});
         console.log("ondeviceready1");
     }

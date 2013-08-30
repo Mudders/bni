@@ -26,9 +26,9 @@
 
     <plugin name="Device" value="org.apache.cordova.Device" />
 
-    <gap:splash src="img/splash.png" gap:platform="android" gap:density="ldpi" />
-    <gap:splash src="img/splash.png" gap:platform="android" gap:density="mdpi" />
-    <gap:splash src="img/splash.png" gap:platform="android" gap:density="hdpi" />
-    <gap:splash src="img/splash.png" gap:platform="android" gap:density="xhdpi" />
+    <gap:splash src="img/ldpi.png" gap:platform="android" gap:density="ldpi" />
+    <gap:splash src="img/mdpi.png" gap:platform="android" gap:density="mdpi" />
+    <gap:splash src="img/hdpi.png" gap:platform="android" gap:density="hdpi" />
+    <gap:splash src="img/xhdpi.png" gap:platform="android" gap:density="xhdpi" />
 
 </widget>

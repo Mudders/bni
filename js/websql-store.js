@@ -38,6 +38,7 @@ var WebSqlStore = function(successCallback, errorCallback) {
                             console.log("inserting data " + returnValue);
                             eval( returnValue );
                             console.log("completed inserting data");
+                            navigator.splashscreen.hide();
                           });
                       });
                       window.localStorage.setItem("WIFISync", "yes");

@@ -36,6 +36,7 @@ var app = {
     // deviceready Event Handler
     onDeviceReady: function() {
         console.log("ondeviceready");
+        alert("start about to call websqlstore")
         webStore = new WebSqlStore(function() {});
         console.log("ondeviceready1");
     }

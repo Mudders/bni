@@ -1,5 +1,5 @@
 var WebSqlStore = function(successCallback, errorCallback) {
-
+    alert("start websqlstore")
     if (navigator.notification)
       navigator.notification.activityStart("Synchronizing Contacts....", "loading");
 
@@ -18,13 +18,14 @@ var WebSqlStore = function(successCallback, errorCallback) {
       window.localStorage.setItem("WIFISync", "yes");
 
     console.log("NETWORK STATE : " + networkState);
-
+alert("before db initialise")
     this.initializeDatabase = function(successCallback, errorCallback) {
     var self = this;
     this.db = window.openDatabase("BNI", "1.0", "BNI", 200000);
     this.db.transaction(
-            function(tx) { console.log("inside db transaction");
+            function(tx) {
                 // Check if tables exist - if they do then user already exists, else create
+                alert("inside db trasnaction")
                 var sql = "SELECT name FROM sqlite_master WHERE type='table' AND name='chapter';";
                 tx.executeSql(sql, [], function(tx, results) {  console.log("web10");
                     if (results.rows.length == 0 || results.rows.length > 0) {
@@ -44,6 +45,7 @@ var WebSqlStore = function(successCallback, errorCallback) {
                             if (navigator.notification)
                               navigator.notification.activityStop();
                             console.log("completed inserting data");
+                            alert("finished loading data")
                           });
                       });
                       window.localStorage.setItem("WIFISync", "yes");

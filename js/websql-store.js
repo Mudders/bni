@@ -17,14 +17,14 @@ var WebSqlStore = function(successCallback, errorCallback) {
       window.localStorage.setItem("WIFISync", "yes");
 
     console.log("NETWORK STATE : " + networkState);
-alert("before db initialise")
+//alert("before db initialise")
     this.initializeDatabase = function(successCallback, errorCallback) {
     var self = this;
     this.db = window.openDatabase("BNI", "1.0", "BNI", 200000);
     this.db.transaction(
             function(tx) {
                 // Check if tables exist - if they do then user already exists, else create
-                alert("inside db trasnaction")
+                //alert("inside db trasnaction")
                 var sql = "SELECT name FROM sqlite_master WHERE type='table' AND name='chapter';";
                 tx.executeSql(sql, [], function(tx, results) {  console.log("web10");
                     if (results.rows.length == 0 || results.rows.length > 0) {
@@ -3039,7 +3039,7 @@ addKeywordMemberData(tx, keywordmembers);
                             if (navigator.notification)
                               navigator.notification.activityStop();
                             console.log("completed inserting data");
-                            alert("finished loading data")
+                            //alert("finished loading data")
                           });
                       });
                       window.localStorage.setItem("WIFISync", "yes");
@@ -3089,7 +3089,7 @@ addKeywordMemberData(tx, keywordmembers);
                     console.log('Create table success');
                 },
                 function(tx, error) {
-                    alert('Create table error: ' + error.message);
+                    //alert('Create table error: ' + error.message);
                 });
     }
 
@@ -3109,7 +3109,7 @@ addKeywordMemberData(tx, keywordmembers);
                     console.log('Create table success');
                 },
                 function(tx, error) {
-                    alert('Create table error: ' + error.message);
+                    //alert('Create table error: ' + error.message);
                 });
     }
 
@@ -3123,7 +3123,7 @@ addKeywordMemberData(tx, keywordmembers);
                     console.log('Create table success');
                 },
                 function(tx, error) {
-                    alert('Create table error: ' + error.message);
+                    //alert('Create table error: ' + error.message);
                 });
     }
 
@@ -3138,7 +3138,7 @@ addKeywordMemberData(tx, keywordmembers);
                     console.log('Create table success');
                 },
                 function(tx, error) {
-                    alert('Create table error: ' + error.message);
+                    //alert('Create table error: ' + error.message);
                 });
     }
 
@@ -3162,7 +3162,7 @@ addKeywordMemberData(tx, keywordmembers);
                 });
             },
             function(error) {
-                alert("Transaction Error: " + error.message);
+                //alert("Transaction Error: " + error.message);
             }
         );
     }
@@ -3183,7 +3183,7 @@ addKeywordMemberData(tx, keywordmembers);
                 });
             },
             function(error) {
-                alert("Transaction Error: " + error.message);
+                //alert("Transaction Error: " + error.message);
             }
         );
     };
@@ -3206,7 +3206,7 @@ addKeywordMemberData(tx, keywordmembers);
                 });
             },
             function(error) {
-                alert("Transaction Error: " + error.message);
+                //alert("Transaction Error: " + error.message);
             }
         );
     }
@@ -3231,7 +3231,7 @@ addKeywordMemberData(tx, keywordmembers);
                 });
             },
             function(error) {
-                alert("Transaction Error: " + error.message);
+                //alert("Transaction Error: " + error.message);
             }
         );
     };
@@ -3256,7 +3256,7 @@ addKeywordMemberData(tx, keywordmembers);
                 });
             },
             function(error) {
-                alert("Transaction Error: " + error.message);
+                //alert("Transaction Error: " + error.message);
             }
         );
     }
@@ -3280,7 +3280,7 @@ addKeywordMemberData(tx, keywordmembers);
                 });
             },
             function(error) {
-                alert("Transaction Error: " + error.message);
+                //alert("Transaction Error: " + error.message);
             }
         );
     }
@@ -3308,7 +3308,7 @@ addKeywordMemberData(tx, keywordmembers);
                 });
             },
             function(error) {
-                alert("Transaction Error: " + error.message);
+                //alert("Transaction Error: " + error.message);
             }
         );
     }
@@ -3337,7 +3337,7 @@ addKeywordMemberData(tx, keywordmembers);
 }
 
   function addChapterData(tx, chapters) {
-        alert("Inside Add Chapter Data")
+        //alert("Inside Add Chapter Data")
         var l = chapters.length;
         var sql = "INSERT OR REPLACE INTO chapter " +
             "(id, chaptername, venue, city, area, meetingday, meetingtime) " +
@@ -3356,7 +3356,7 @@ addKeywordMemberData(tx, keywordmembers);
     }
 
     function addMemberData(tx, members) {
-        alert("Inside Add Members Data")
+        //alert("Inside Add Members Data")
         var l = members.length;
         var sql = "INSERT OR REPLACE INTO member " +
             "(id, name, chapterId, company, phone, mobile, website, address) " +
@@ -3375,7 +3375,7 @@ addKeywordMemberData(tx, keywordmembers);
     }
 
     function addKeywordData(tx, keywords) {
-    alert("Inside Add keywords Data")
+    //alert("Inside Add keywords Data")
         var l = keywords.length;
         var sql = "INSERT OR REPLACE INTO keyword " +
             "(id, keyword) " +
@@ -3394,7 +3394,7 @@ addKeywordMemberData(tx, keywordmembers);
     }
 
     function addKeywordMemberData(tx, keywordmembers) {
-    alert("Inside Add keywordmembers Data")
+    //alert("Inside Add keywordmembers Data")
         var l = keywordmembers.length;
         var sql = "INSERT OR REPLACE INTO keywordmember " +
             "(id, keyid, memberid) " +

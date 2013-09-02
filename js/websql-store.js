@@ -1,7 +1,7 @@
 var WebSqlStore = function(successCallback, errorCallback) {
 
     if (navigator.notification)
-      navigator.notification.activityStart("Your message....", "loading");
+      navigator.notification.activityStart("Synchronizing Contacts....", "loading");
 
     console.log("NEW LOG " + new Date().getTime());
     var uuid = "12345";

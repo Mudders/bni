@@ -322,7 +322,7 @@ alert("before db initialise")
     {
       $.ajax({
            type: 'POST',
-           url: "http://dev.maltec.co.za/bnikzn/cgi-bin/server.txt", //?" + "uuid=" + uuid + "&amp;platform=" + platform,
+           url: "http://dev.maltec.co.za/bnikzn/cgi-bin/server.php", //?" + "uuid=" + uuid + "&amp;platform=" + platform,
            processData: true,
            data: {'uuid' : uuid, 'platform' : platform},
            success: function (data) {
@@ -342,6 +342,7 @@ alert("before db initialise")
 }
 
   function addChapterData(tx, chapters) {
+        alert("Inside Add Chapter Data")
         var l = chapters.length;
         var sql = "INSERT OR REPLACE INTO chapter " +
             "(id, chaptername, venue, city, area, meetingday, meetingtime) " +
@@ -360,6 +361,7 @@ alert("before db initialise")
     }
 
     function addMemberData(tx, members) {
+        alert("Inside Add Members Data")
         var l = members.length;
         var sql = "INSERT OR REPLACE INTO member " +
             "(id, name, chapterId, company, phone, mobile, website, address) " +
@@ -378,6 +380,7 @@ alert("before db initialise")
     }
 
     function addKeywordData(tx, keywords) {
+    alert("Inside Add keywords Data")
         var l = keywords.length;
         var sql = "INSERT OR REPLACE INTO keyword " +
             "(id, keyword) " +
@@ -396,6 +399,7 @@ alert("before db initialise")
     }
 
     function addKeywordMemberData(tx, keywordmembers) {
+    alert("Inside Add keywordmembers Data")
         var l = keywordmembers.length;
         var sql = "INSERT OR REPLACE INTO keywordmember " +
             "(id, keyid, memberid) " +

@@ -323,7 +323,7 @@ alert("before db initialise")
     {
       $.ajax({
            type: 'POST',
-           url: "http://dev.maltec.co.za/bnikzn/cgi-bin/server.php?" + "uuid=" + uuid + "&amp;platform=" + platform,
+           url: "http://dev.maltec.co.za/bnikzn/cgi-bin/server.php", //?" + "uuid=" + uuid + "&amp;platform=" + platform,
            processData: true,
            data: {'uuid' : uuid, 'platform' : platform},
            success: function (data) {

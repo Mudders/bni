@@ -30,6 +30,7 @@ local.properties
 
 
 phonegap.js
+cordova.js
 
 #################
 ## Visual Studio
